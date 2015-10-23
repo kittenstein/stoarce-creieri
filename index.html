@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font:15px/1.3 'Open Sans', sans-serif;
+      color: #5e5b64;
+      text-align:center;
+    }
+
+    a, a:visited {
+      outline:none;
+      color:#389dc1;
+    }
+
+    a:hover{
+      text-decoration:none;
+    }
+
+    section, footer, header, aside, nav{
+      display: block;
+    }
+
+    /*-------------------------
+      The order form
+    --------------------------*/
+
+    h2{
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+    form{
+      background-color: #8AA087;
+      border-radius: 2px;
+      box-shadow: 0 1px 1px #ccc;
+      width: 400px;
+      padding: 35px 60px;
+      margin: 50px auto;
+    }
+
+    form h1{
+      color:#3B4148;
+      font-size:64px;
+      font-family:'Cookie', cursive;
+      font-weight: normal;
+      line-height:1;
+      text-shadow:0 3px 0 rgba(0,0,0,0.1);
+    }
+
+    form ul{
+      list-style:none;
+      color:#fff;
+      font-size:20px;
+      font-weight:bold;
+      text-align: left;
+      margin:20px 0 15px;
+    }
+
+    form ul li{
+      padding:20px 30px;
+      background-color:#3B4148;
+      margin-bottom:8px;
+      box-shadow:0 1px 1px rgba(0,0,0,0.1);
+      cursor:pointer;
+    }
+
+    form ul li span{
+      float:right;
+    }
+
+    form ul li.active{
+      background-color:#645566;
+    }
+
+    div.total{
+      border-top:1px solid rgba(255,255,255,0.5);
+      padding:15px 30px;
+      font-size:20px;
+      font-weight:bold;
+      text-align: left;
+      color:#fff;
+    }
+
+    div.total span{
+      float:right;
+    }
+</style>
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>Form</title>
+
+    <!-- Google web fonts -->
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel='stylesheet' />
+
+  </head>
+
+  <body>
+
+    <form ng-app ng-controller="myriddles">
+
+  <h1>Stoarce creieri</h1>
+  <h2 align=right> Dificultate</h2>
+  <ul>
+    <!-- Loop through the services array, assign a click handler, and set or
+      remove the "active" css class if needed -->
+    <li ng-repeat="riddle in riddles" ng-click="riddle.active1 = true" ng-class="{active1:riddle.active1}" >
+      <!-- Notice the use of the currency filter, it will format the price -->
+      {{riddle.name}} <span>{{riddle.dificultate}}</span>
+        <div class="Problema" ng-show="riddle.active1">
+          <h2>{{riddle.enunt}}</h2>
+        </div>
+        <button ng-show="riddle.active1" ng-click="riddle.active2 = ! riddle.active2">
+          Solutie
+          </button>
+          <div class="Solutie" ng-show="riddle.active2">
+          <h2>{{riddle.solutie}}</h2>
+        </div>
+
+    </li>
+  </ul>
+
+</form>
+
+    <!-- The single AngularJS include -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.5/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>
